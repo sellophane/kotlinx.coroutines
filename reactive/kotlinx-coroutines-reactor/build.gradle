@@ -7,13 +7,14 @@ dependencies {
     compile project(':kotlinx-coroutines-reactive')
 }
 
-tasks.withType(dokka.getClass()) {
-    externalDocumentationLink {
-        url = new URL("https://projectreactor.io/docs/core/$reactor_version/api/")
-        packageListUrl = projectDir.toPath().resolve("package.list").toUri().toURL()
+configuration {
+    configuration {
+        externalDocumentationLink {
+            url = new URL("https://projectreactor.io/docs/core/$reactor_version/api/")
+            packageListUrl = projectDir.toPath().resolve("package.list").toUri().toURL()
+        }
     }
 }
-
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
